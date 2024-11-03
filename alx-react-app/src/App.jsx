@@ -1,6 +1,7 @@
 import WelcomeMessage from './components/WelcomeMessage'
 import Header from './Header';
 import MainContent from './MainContent';
+import UserProfile from './components/UserProfile';
 import Footer from './Footer';
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
@@ -34,6 +35,7 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
         <WelcomeMessage />
+        <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
