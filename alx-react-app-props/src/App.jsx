@@ -4,7 +4,7 @@ import MainContent from './components/MainContent';
 import UserProfile from './components/UserProfile';
 import Footer from './components/Footer';
 import ProfilePage from './components/ProfilePage';
-import UserContext from './UserContext';
+import UserContext from './components/UserContext';
 import { useState } from 'react'
 import './App.css'
 
