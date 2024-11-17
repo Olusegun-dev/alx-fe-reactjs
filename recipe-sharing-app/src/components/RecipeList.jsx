@@ -1,4 +1,4 @@
-import { useRecipeStore } from '../store/useRecipeStore';
+import { useRecipeStore } from './recipeStore';
 import { Link } from 'react-router-dom';
 
 const RecipeList = () => {
