@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import PostsComponent from './components/PostsComponent';
 
@@ -11,5 +13,17 @@ const App = () => {
     </div>
   );
 };
+
+
+
+
+const queryClient = new QueryClient();
+
+ReactDOM.render(
+  <QueryClientProvider client={queryClient}>
+    <App />
+  </QueryClientProvider>,
+  document.getElementById('root')
+);
 
 export default App;
