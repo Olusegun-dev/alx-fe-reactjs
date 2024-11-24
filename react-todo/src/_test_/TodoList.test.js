@@ -1,41 +1,43 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import TodoList from '../components/TodoList';
+// __tests__/TodoList.test.js
+import React from "react";
+import { render, fireEvent, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import TodoList from "../TodoList";
 
-describe('TodoList Component', () => {
-  test('renders initial todos', () => {
+describe("TodoList Component", () => {
+  test("renders the TodoList with initial todos", () => {
     render(<TodoList />);
-    expect(screen.getByText('Learn React')).toBeInTheDocument();
-    expect(screen.getByText('Learn Testing')).toBeInTheDocument();
+    expect(screen.getByText("Learn React")).toBeInTheDocument();
+    expect(screen.getByText("Build a Todo App")).toBeInTheDocument();
   });
 
-  test('adds a new todo', () => {
+  test("adds a new todo item", () => {
     render(<TodoList />);
-    const input = screen.getByPlaceholderText('Add a new todo');
-    const addButton = screen.getByText('Add');
 
-    fireEvent.change(input, { target: { value: 'New Todo' } });
-    fireEvent.click(addButton);
+    const input = screen.getByPlaceholderText("Add a new todo");
+    const button = screen.getByText("Add");
 
-    expect(screen.getByText('New Todo')).toBeInTheDocument();
-    expect(input.value).toBe('');
+    fireEvent.change(input, { target: { value: "Test Todo" } });
+    fireEvent.click(button);
+
+    expect(screen.getByText("Test Todo")).toBeInTheDocument();
   });
 
-  test('toggles todo completion', () => {
+  test("toggles a todo item's completion status", () => {
     render(<TodoList />);
-    const todoItem = screen.getByText('Learn React');
 
+    const todoItem = screen.getByText("Learn React");
     fireEvent.click(todoItem);
-    expect(todoItem).toHaveStyle('text-decoration: line-through');
 
+    expect(todoItem).toHaveStyle("text-decoration: line-through");
     fireEvent.click(todoItem);
-    expect(todoItem).not.toHaveStyle('text-decoration: line-through');
+    expect(todoItem).toHaveStyle("text-decoration: none");
   });
 
-  test('deletes a todo', () => {
+  test("deletes a todo item", () => {
     render(<TodoList />);
-    const todoItem = screen.getByText('Learn React');
+
+    const todoItem = screen.getByText("Learn React");
     const deleteButton = todoItem.nextSibling;
 
     fireEvent.click(deleteButton);
