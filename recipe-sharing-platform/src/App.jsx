@@ -1,22 +1,16 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
-import RecipeDetail from './components/RecipeDetails';
-import AddRecipe from './components/AddRecipe';
+import RecipeDetail from "./components/RecipeDetail";
 
 function App() {
   return (
-    <div>
-      <HomePage />
-
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/recipe/:id" element={<RecipeDetail />} />
-        <Route path="/add-recipe" element={<AddRecipe />} />
       </Routes>
     </Router>
-    </div>
   );
 }
 
